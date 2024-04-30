@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/spring-mvc.jar crud.jar
+COPY --from=build /target/Spring_MVC_CRUD-0.0.1-SNAPSHOT.jar crud.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","crud.jar"]
