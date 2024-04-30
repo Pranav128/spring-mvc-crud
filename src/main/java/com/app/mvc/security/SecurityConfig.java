@@ -12,8 +12,16 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 @Configuration
-public class SecurityConfig {
+public class SecurityConfig /*extends WebMvcConfigurationSupport */{
 
+/*    private static final String RESOURCES_HANDLER = "/resources/";
+    private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
+
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(RESOURCES_HANDLER).addResourceLocations(RESOURCES_LOCATION);
+    }*/
     @Bean
     public SecurityFilterChain customSecurity(HttpSecurity http) throws Exception {
 //     /employees/showFormForUpdate
@@ -29,6 +37,7 @@ public class SecurityConfig {
                 .requestMatchers("/employees/showFormForUpdate**").hasRole("ADMIN")
                 .requestMatchers("/h2").authenticated()
                 .requestMatchers("/h2/**").authenticated()
+//                    .requestMatchers("/static/favicon.ico").permitAll()
         );
 //                        .anyRequest("/employees/employees/showFormForUpdate**").authenticated());
 //                    .requestMatchers(HttpMethod.POST,"/signup").hasRole("USER")
