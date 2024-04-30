@@ -64,4 +64,6 @@ public class Employee extends BaseEntity {
 	@NotEmpty(message = "Gender can't empty")
 	private String gender;
 
+
+
 }
